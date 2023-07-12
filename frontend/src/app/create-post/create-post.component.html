@@ -1,0 +1,32 @@
+<div class="flex flex-col m-6">
+  <h1>Create Post</h1>
+  <form [formGroup]="createPost" class="flex flex-col" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input
+        type="text"
+        class="form-control"
+        matInput
+        formControlName="title"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <textarea
+        matInput
+        formControlName="message"
+        placeholder="Create a message to share with your friends"
+      >
+      </textarea>
+    </mat-form-field>
+    <button type="submit" mat-button mat-raised-button color="primary">
+      Share
+    </button>
+  </form>
+
+  <app-post-card
+    class="pt-4"
+    [title]="createPost.controls['title'].value"
+    [message]="createPost.controls['message'].value"
+  ></app-post-card>
+</div>

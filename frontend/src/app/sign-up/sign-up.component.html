@@ -1,0 +1,56 @@
+<div class="flex flex-col justify-center m-6">
+  <h1 class="text-center font-bold">Easy Media</h1>
+  <h3 class="text-center">Now, share is easy</h3>
+  <h2 class="text-center">Sign up</h2>
+  <form [formGroup]="signupForm" class="flex flex-col" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label for="username">Username</mat-label>
+      <input
+        type="text"
+        class="form-control"
+        matInput
+        formControlName="username"
+      />
+      <mat-error *ngIf="signupForm.controls['username'].invalid">
+        {{ getErrorMessage() }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="email">Email</mat-label>
+      <input
+        type="email"
+        class="form-control"
+        matInput
+        formControlName="email"
+      />
+      <mat-error *ngIf="signupForm.controls['email'].invalid">
+        {{ getErrorMessage() }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="password">Password</mat-label>
+      <input
+        type="password"
+        class="form-control"
+        matInput
+        formControlName="password"
+      />
+      <mat-error *ngIf="signupForm.controls['password'].invalid">
+        {{ getErrorMessage() }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="confirmedPassword">Confirm Password</mat-label>
+      <input
+        type="password"
+        class="form-control"
+        matInput
+        formControlName="confirmedPassword"
+      />
+      <mat-error *ngIf="signupForm.controls['confirmedPassword'].invalid">
+        {{ getErrorMessage() }}
+      </mat-error>
+    </mat-form-field>
+    <button type="submit" mat-button mat-raised-button color="primary">Sign Up</button>
+  </form>
+</div>

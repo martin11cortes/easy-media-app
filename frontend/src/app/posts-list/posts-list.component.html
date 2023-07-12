@@ -1,0 +1,30 @@
+<h1>{{ mine ? "My Publications" : "All Publications" }}</h1>
+<form [formGroup]="searchForm" class="flex flex-col">
+  <mat-form-field *ngIf="!mine">
+    <mat-label>Words to search</mat-label>
+    <input matInput placeholder="Post keyword..." formControlName="keyword" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Date Select</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <button
+      *ngIf="searchForm.controls['date'].value"
+      matPrefix
+      mat-icon-button
+      (click)="searchForm.controls['date'].setValue('')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</form>
+<app-post-card
+class="px-4"
+  *ngFor="let post of posts"
+  [message]="post.message"
+  [title]="post.title"
+  [user]="post.username"
+  [date]="post.date"
+></app-post-card>
