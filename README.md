@@ -1,4 +1,4 @@
-# Easy Media Ap
+# Easy Media App
 
 This project is a web application that consists of a backend and frontend.
 
